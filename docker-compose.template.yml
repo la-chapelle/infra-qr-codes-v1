@@ -2,11 +2,12 @@ version: "3.2"
 services:
   php-dynamic-qrcode:
     image: "giandonatoinverso/php-dynamic-qr-code:latest"
+    #build: .
     restart: "unless-stopped"
     environment:
       TYPE: "docker"
       QRCODE_GENERATOR: "internal-chillerlan.qrcode"
-      BASE_URL: "https://mydomain.com"
+      BASE_URL: "https://url.com"
       DATABASE_HOST: "php-dynamic-qrcode-db"
       DATABASE_PORT: "3306"
       DATABASE_NAME: "qrcode"
@@ -14,29 +15,46 @@ services:
       DATABASE_PASSWORD: "changeme"
       DATABASE_PREFIX: ""
       DATABASE_CHARSET: "utf8"
-    ports:
-      - 80:80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.infra-qr.rule=Host(`qr.localhost`)"
+      - "traefik.http.routers.infra-qr.entrypoints=websecure"
+      - "traefik.http.routers.infra-qr.tls.certresolver=myresolver"
+      - "traefik.http.routers.infra-qr.tls=true"
     depends_on:
       - php-dynamic-qrcode-db
     volumes:
       - php_dynamic_qrcode_saved_qrcode_data:/var/www/html/saved_qrcode
     networks:
       - php-dynamic-qrcode-network
+      - default
 
   php-dynamic-qrcode-db:
     image: "giandonatoinverso/php-dynamic-qr-code-db:latest"
+    #build: .
     restart: "unless-stopped"
     volumes:
       - php_dynamic_qrcode_db_data:/var/lib/mysql
+    secrets:
+       - db_root_password
+       - db_password
     ports:
       - '13306:3306'
     environment:
-      MYSQL_ROOT_PASSWORD: "changeme"
+      MYSQL_PASSWORD_FILE: /run/secrets/db_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
       MYSQL_DATABASE: "qrcode"
       MYSQL_USER: "qrcode"
-      MYSQL_PASSWORD: "changeme"
     networks:
       - php-dynamic-qrcode-network
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #       - 8080:8080
+  #   networks:
+  #     - php-dynamic-qrcode-network
 
 volumes:
   php_dynamic_qrcode_db_data:
@@ -46,3 +64,12 @@ volumes:
 networks:
   php-dynamic-qrcode-network:
     driver: bridge
+  default:
+      external:
+          name: gateway
+
+secrets:
+  db_password:
+    file: ./secrets/db_password.txt
+  db_root_password:
+    file: ./secrets/db_root_password.txt

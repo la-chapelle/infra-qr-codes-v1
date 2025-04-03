@@ -43,7 +43,7 @@ function getDbInstance() {
 
 /**
  * Add lang and configuration language of the app
- * 
+ * Source: https://lokalise.com/blog/implementing-php-localization-complete-guide/
  */
 $lang = $_GET['langID'] ?? 'fr';
 $langArray = require 'locale/' . $lang . '.php';
