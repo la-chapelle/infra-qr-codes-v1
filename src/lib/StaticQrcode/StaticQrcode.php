@@ -15,11 +15,14 @@ class StaticQrcode {
     private $sData;         // Data for the qr code
     private $sContent;      // Content to be stored in the database
     private Qrcode $qrcode_instance;
+    private $langArray;
     /**
      *
      */
     public function __construct() {
+        global $langArray;
         $this->qrcode_instance = new Qrcode("static");
+        $this->langArray = $langArray;
     }
 
     /**
@@ -35,14 +38,14 @@ class StaticQrcode {
     public function setOrderingValues()
     {
         $ordering = [
-            'id' => 'ID',
-            'id_owner' => 'Owner',
-            'filename' => 'File Name',
-            'type' => 'Type',
-            'content' => 'Content',
-            'qrcode' => 'Qr Code',
-            'created_at' => 'Created at',
-            'updated_at' => 'Updated at'
+            'id' => $this->langArray["ID"],
+            'id_owner' => $this->langArray["Owner"],
+            'filename' => $this->langArray["Filename"],
+            'type' => $this->langArray["Type"],
+            'content' => $this->langArray["Content"],
+            'qrcode' => $this->langArray["Qr code"],
+            'created_at' => $this->langArray["Created at"],
+            'updated_at' => $this->langArray["Updated at"]
         ];
 
         return $ordering;
@@ -56,7 +59,7 @@ class StaticQrcode {
     {
         if($text != NULL){
             $this->sData = $text;
-            $this->sContent = '<strong>Text:</strong> '.$text;
+            $this->sContent = '<strong>' . $this->langArray["Text"] . '</strong> '.$text;
             $this->addQrcode("text");
         }
         else
@@ -486,7 +489,7 @@ class StaticQrcode {
      * Error message if not filled in all the fields required by the type of the qr code
      */
     private function requiredFieldsError() {
-        $this->failure('The qr code cannot be created if you do not fill in all the required fields (*)');
+        $this->failure($this->langArray["The qr code cannot be created if you do not fill in all the required fields (*)"]);
     }
 
     public function debug($data) {

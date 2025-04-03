@@ -12,11 +12,15 @@ if (QRCODE_GENERATOR === "internal-chillerlan.qrcode") {
 
 class DynamicQrcode {
     private Qrcode $qrcode_instance;
+    private array $langArray;
+
     /**
      *
      */
     public function __construct() {
+        global $langArray;
         $this->qrcode_instance = new Qrcode("dynamic");
+        $this->langArray = $langArray;
     }
 
     /**
@@ -32,14 +36,14 @@ class DynamicQrcode {
     public function setOrderingValues()
     {
         $ordering = [
-            'id' => 'ID',
-            'id_owner' => 'Owner',
-            'filename' => 'File Name',
-            'identifier' => 'Identifier',
-            'link' => 'Link',
-            'qrcode' => 'Qr Code',
-            'created_at' => 'Created at',
-            'updated_at' => 'Updated at'
+            'id' => $this->langArray["ID"],
+            'id_owner' => $this->langArray["Owner"],
+            'filename' => $this->langArray["Filename"],
+            'identifier' => $this->langArray["Identifier"],
+            'link' => $this->langArray["Link"],
+            'qrcode' => $this->langArray["Qr code"],
+            'created_at' => $this->langArray["Created at"],
+            'updated_at' => $this->langArray["Updated at"]
         ];
 
         return $ordering;
@@ -103,7 +107,7 @@ class DynamicQrcode {
             $qrcode = $this->getQrcode($id);
 
             if(!isset($qrcode["id_owner"]))
-                $this->failure("You cannot delete this qrcode");
+                $this->failure($this->langArray["You cannot delete this qrcode"]);
 
             require_once BASE_PATH . '/lib/Users/Users.php';
             $users = new Users();
@@ -112,7 +116,7 @@ class DynamicQrcode {
             if($user["id"] === $qrcode["id_owner"])
                 $this->qrcode_instance->deleteQrcode($id, $async);
             else
-                $this->failure("You cannot delete this qrcode because it's of another user");
+                $this->failure($this->langArray["You cannot delete this qrcode because it belongs to another user"]);
         }
     }
 

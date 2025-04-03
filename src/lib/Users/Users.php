@@ -3,11 +3,14 @@ require_once 'config/config.php';
 
 class Users
 {
+    private $langArray;
     /**
      *
      */
     public function __construct()
     {
+        global $langArray;
+        $this->langArray = $langArray;
     }
 
     /**
@@ -23,9 +26,9 @@ class Users
     public function setOrderingValues()
     {
         $ordering = [
-            'id' => 'ID',
-            'username' => 'Username',
-            'type' => 'Type'
+            'id' => $this->langArray["ID"],
+            'username' => $this->langArray["Username"],
+            'type' => $this->langArray["Type"]
         ];
 
         return $ordering;
@@ -45,7 +48,7 @@ class Users
         if($result !== NULL)
             return $result;
         else
-            $this->failure("User not found");
+            $this->failure($this->langArray["User not found"]);
     }
     
     /**
@@ -62,12 +65,12 @@ class Users
         $db->get('users');
 
         if ($db->count >= 1)
-            $this->failure('Username already exists');
+            $this->failure($this->langArray["Username already exists"]);
 
 	    $last_id = $db->insert('users', $data_to_db);
 
 	    if ($last_id)
-		    $this->success('User added successfully');
+		    $this->success($this->langArray["User added successfully"]);
     }
     
     /**
@@ -86,7 +89,7 @@ class Users
                 'id' => $input_data["id"],
                 'edit' => "true",
             ));
-            $this->failure('Username already exists', 'Location: user.php?'.$query_string);
+            $this->failure($this->langArray["Username already exists"], 'Location: user.php?'.$query_string);
         }
 
         $data_to_db["username"] = $input_data["username"];
@@ -97,9 +100,9 @@ class Users
 	    $stat = $db->update('users', $data_to_db);
         
         if ($stat)
-            $this->success('User updated successfully!');
+            $this->success($this->langArray["User updated successfully"]);
         else
-            $this->failure('Failed to update User: ' . $db->getLastError());
+            $this->failure($this->langArray["Failed to update User"] . $db->getLastError());
     }
     
     /**
@@ -117,9 +120,9 @@ class Users
         $stat = $db->delete('users');
 
         if ($stat)
-            $this->info('User deleted successfully!');
+            $this->info($this->langArray["User deleted successfully"]);
         else
-            $this->failure('Unable to delete user');
+            $this->failure($this->langArray["Unable to delete user"]);
     }
     
     /**

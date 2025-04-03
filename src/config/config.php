@@ -39,3 +39,12 @@ function getDbInstance() {
         'prefix' => DATABASE_PREFIX,
         'charset' => DATABASE_CHARSET));
 }
+
+
+/**
+ * Add lang and configuration language of the app
+ * 
+ */
+$lang = $_GET['langID'] ?? 'fr';
+$langArray = require 'locale/' . $lang . '.php';
+

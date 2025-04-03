@@ -19,6 +19,7 @@ require_once __DIR__.'/../../vendor/autoload.php';
 class Qrcode {
     private string $table;
     private string $redirect_url;
+    private array $langArray;
 
     /**
      *
@@ -34,6 +35,8 @@ class Qrcode {
             $this->redirect_url = "index.php";
             $this->failure("Type not allowed");
         }
+        global $langArray;
+        $this->langArray = $langArray;
     }
 
     /**
@@ -305,10 +308,10 @@ class Qrcode {
             $this->failure('You cannot create a new qr code with an existing name on the server!');
         
         if ($last_id){
-            $this->success('Qr code added successfully!');
+            $this->success($this->langArray["Qr code added successfully!"]);
         }
         else {
-            $this->failure('Insert failed: ' . $db->getLastError());
+            $this->failure($this->langArray["Insert failed:"] . $db->getLastError());
         }
     }
     
@@ -337,10 +340,10 @@ class Qrcode {
             $this->failure('You cannot edit a qr code with an existing name on the server!');
         
         if ($stat){
-            $this->success('Qr code updated successfully!');
+            $this->success($this->langArray["Qr code updated successfully!"]);
         }
         else {
-            $this->failure('Insert failed: ' . $db->getLastError());
+            $this->failure($this->langArray["Insert failed:"] . $db->getLastError());
         }
     }
 
@@ -366,11 +369,11 @@ class Qrcode {
 
         if ($status)
             if (!$async) {
-                $this->info('Qr code deleted successfully!');
+                $this->info($this->langArray["Qr code deleted successfully!"]);
             }
         else
             if (!$async) {
-                $this->failure('Unable to delete qr code');
+                $this->failure($this->langArray["Unable to delete qr code"]);
             }
     }
     

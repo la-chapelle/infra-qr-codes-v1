@@ -85,7 +85,7 @@ foreach ($createdQrcode_static as $row) {
 
 <!DOCTYPE html>
 <html lang="en">
-    <title>Qr Code Generator</title>
+    <title><?php echo $langArray['Qr Code Generator']; ?></title>
     <head>
     <?php include './includes/head.php'; ?>
     </head>
@@ -107,7 +107,7 @@ foreach ($createdQrcode_static as $row) {
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0 text-dark">Dashboard</h1>
+                                <h1 class="m-0 text-dark"><?php echo $langArray['Dashboard']; ?></h1>
                             </div><!-- /.col -->
                         </div><!-- /.row -->
                     </div><!-- /.container-fluid -->
@@ -128,7 +128,7 @@ foreach ($createdQrcode_static as $row) {
                                         <span class="info-box-icon"><i class="fa fa-qrcode"></i></span>
 
                                         <div class="info-box-content">
-                                            <span class="info-box-text">Total qr codes</span>
+                                            <span class="info-box-text"><?php echo $langArray['Total qr codes']; ?></span>
                                             <span class="info-box-number"><?php echo $total; ?></span>
                                         </div><!-- /.info-box-content -->
                                     </div>
@@ -139,7 +139,7 @@ foreach ($createdQrcode_static as $row) {
                                         <span class="info-box-icon"><i class="fa fa-qrcode"></i></span>
 
                                         <div class="info-box-content">
-                                            <span class="info-box-text">Dynamic Qr codes</span>
+                                            <span class="info-box-text"><?php echo $langArray['Dynamic Qr codes']; ?></span>
                                             <span class="info-box-number"><?php echo $numQrcode_dynamic; ?></span>
                                         </div><!-- /.info-box-content -->
                                     </div>
@@ -153,7 +153,7 @@ foreach ($createdQrcode_static as $row) {
                                         <span class="info-box-icon"><i class="fa fa-qrcode"></i></span>
 
                                         <div class="info-box-content">
-                                            <span class="info-box-text">Static QR codes</span>
+                                            <span class="info-box-text"><?php echo $langArray['Static QR codes']; ?></span>
                                             <span class="info-box-number"><?php echo $numQrcode_static; ?></span>
                                         </div><!-- /.info-box-content -->
 
@@ -165,7 +165,7 @@ foreach ($createdQrcode_static as $row) {
                                         <span class="info-box-icon"><i class="fas fa-chart-line"></i></span>
 
                                         <div class="info-box-content">
-                                            <span class="info-box-text">Total Scans</span>
+                                            <span class="info-box-text"><?php echo $langArray['Total Scans']; ?></span>
                                             <span class="info-box-number"><?php echo $numScan["numScan"]; ?></span>
                                         </div><!-- /.info-box-content -->
                                     </div>
@@ -178,7 +178,7 @@ foreach ($createdQrcode_static as $row) {
                                 <!-- Created chart -->
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Qr codes created in the last week</h3>
+                                        <h3 class="card-title"><?php echo $langArray['Qr codes created in the last week']; ?></h3>
 
                                         <div class="card-tools">
                                             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -190,7 +190,7 @@ foreach ($createdQrcode_static as $row) {
                                         <div class="d-flex">
                                             <p class="d-flex flex-column">
                                                 <span class="text-bold text-lg"><?php echo $dynamic_today + $dynamic_oneday + $dynamic_twoday + $dynamic_threeday + $dynamic_fourday + $dynamic_fiveday + $dynamic_sixday + $static_today + $static_oneday + $static_twoday + $static_threeday + $static_fourday + $static_fiveday + $static_sixday?></span>
-                                                <span>Total qr code created</span>
+                                                <span><?php echo $langArray['Total qr code created']; ?></span>
                                             </p>
                                         </div>
 
@@ -209,11 +209,11 @@ foreach ($createdQrcode_static as $row) {
 
                                         <div class="d-flex flex-row justify-content-end">
                                             <span class="mr-2">
-                                                <i class="fas fa-square text-primary"></i> Dynamic
+                                                <i class="fas fa-square text-primary"></i><?php echo $langArray['Dynamic']; ?>
                                             </span>
 
                                             <span>
-                                                <i class="fas fa-square text-gray"></i> Static
+                                                <i class="fas fa-square text-gray"></i><?php echo $langArray['Static']; ?>
                                             </span>
                                         </div>
                                     </div><!-- /.card-body -->
@@ -226,7 +226,7 @@ foreach ($createdQrcode_static as $row) {
                                         <div class="card-header border-0">
                                             <h3 class="card-title">
                                                 <i class="fas fa-th mr-1"></i>
-                                                Scan Graph
+                                                <?php echo $langArray['Scan Graph']; ?>
                                                 </h3>
 
                                             <div class="card-tools">

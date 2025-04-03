@@ -5,10 +5,10 @@
       <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th width="5%">ID</th>
-                <th width="45%">Username</th>
-                <th width="40%">Type</th>
-                <th width="10%">Actions</th>
+                <th width="5%"><?php echo $langArray['ID']; ?></th>
+                <th width="45%"><?php echo $langArray['Username']; ?></th>
+                <th width="40%"><?php echo $langArray['Type']; ?></th>
+                <th width="10%"><?php echo $langArray['Actions']; ?></th>
             </tr>
         </thead>
         <tbody>
@@ -51,16 +51,16 @@
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Confirm</h4>
+                    <h4 class="modal-title"><?php echo $langArray['Confirm']; ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="del_id" id="del_id" value="">
-                    <p>Are you sure you want to delete this row</p>
+                    <p><?php echo $langArray['Are you sure you want to delete this row']; ?></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><?php echo $langArray['Save changes']; ?></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $langArray['Close']; ?></button>
                 </div>
             </div>
         </form>

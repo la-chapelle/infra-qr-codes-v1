@@ -10,7 +10,7 @@ echo '
               <div class="card-body p-0">
                 <div class="alert alert-success alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                  <i class="icon fas fa-check"></i><strong>Success! </strong>'. $_SESSION['success'].'
+                  <i class="icon fas fa-check"></i><strong>' . $langArray['Success'] . '! </strong>'. $_SESSION['success'].'
   	            </div>
   	           </div>
   	        </div>

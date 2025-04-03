@@ -25,7 +25,7 @@ $total_pages = $db->totalPages;
 
 <!DOCTYPE html>
 <html lang="en">
-    <title>Qrcode Generator</title>
+    <title><?php echo $langArray['Qrcode Generator']; ?></title>
     <head>
     <?php include './includes/head.php'; ?>
     </head>
@@ -47,13 +47,13 @@ $total_pages = $db->totalPages;
         <div class="row mb-2">
             
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Static Qr codes</h1>
+            <h1 class="m-0 text-dark"><?php echo $langArray['Static Qr codes']; ?></h1>
           </div><!-- /.col -->
           
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item">
-                  <a href="static_qrcode.php" class="btn btn-success"><i class="fa fa-plus"></i> Add new</a>
+                  <a href="static_qrcode.php" class="btn btn-success"><i class="fa fa-plus"></i> <?php echo $langArray['Add new']; ?></a>
                 </li>
             </ol>
           </div><!-- /.col -->

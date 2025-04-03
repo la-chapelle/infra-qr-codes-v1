@@ -2,16 +2,16 @@
 
     <div class="col-sm-4">
         <div class="form-group">
-            <label for="filename">Filename *</label>
-            <p>N.B. You can change the name of the file visible in the table, however a new qr code will NOT be generated</p>
-            <input type="text" name="filename" value="<?php echo htmlspecialchars($edit ? $static_qrcode['filename'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Filename" class="form-control" required="required" id = "filename">
+            <label for="filename"><?php echo $langArray['Filename']; ?> *</label>
+            <p><?php echo $langArray['Filename note']; ?></p>
+            <input type="text" name="filename" value="<?php echo htmlspecialchars($edit ? $static_qrcode['filename'] : '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="<?php echo $langArray['Filename']; ?>" class="form-control" required="required" id="filename">
         </div> 
     </div>
 
     <?php if($_SESSION['type'] ===  'super') { ?>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="id_owner">Owner *</label>
+                <label for="id_owner"><?php echo $langArray['Owner']; ?> *</label>
                 <select name="id_owner" class="form-control" required="required">
                     <?php
                     require_once BASE_PATH . '/lib/Users/Users.php';
@@ -20,7 +20,7 @@
                     if(isset($static_qrcode['id_owner'])) {
                         $owner = $users_instance->getUser($static_qrcode['id_owner']);
                         echo "<option selected value=\"" . $owner["id"] . "\">" . $owner["username"] . "</option>";
-                        echo "<option value=\"\">All</option>";
+                        echo "<option value=\"\">" . $langArray['All'] . "</option>";
                     }
 
                     $users = $users_instance->getAllUsers();

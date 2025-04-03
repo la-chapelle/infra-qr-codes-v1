@@ -8,11 +8,11 @@
                         <div class="col-5 col-md-2">
                             <div class="input-group">
                                 <select name="action" class="form-control">
-                                    <option value="download" selected >Download</option>
-                                    <option value="delete">Delete</option>
+                                    <option value="download" selected><?php echo $langArray['Download']; ?></option>
+                                    <option value="delete"><?php echo $langArray['Delete']; ?></option>
                                 </select>
                                 <input type="hidden" name="type" value="static">
-                                <button type="submit" class="btn btn-primary">Apply</button>
+                                <button type="submit" class="btn btn-primary"><?php echo $langArray['Apply']; ?></button>
                             </div>
                         </div>
                     </div>
@@ -27,13 +27,13 @@
         <thead>
             <tr>
                 <th><input type="checkbox" name="bulk-select" value="1"></th>
-                <th>ID</th>
-                <th>Owner</th>
-                <th>Filename</th>
-                <th>Type</th>
-                <th>Content</th>
-                <th>Qr code</th>
-                <th>Operations</th>
+                <th><?php echo $langArray['ID']; ?></th>
+                <th><?php echo $langArray['Owner']; ?></th>
+                <th><?php echo $langArray['Filename']; ?></th>
+                <th><?php echo $langArray['Type']; ?></th>
+                <th><?php echo $langArray['Content']; ?></th>
+                <th><?php echo $langArray['Qr code']; ?></th>
+                <th><?php echo $langArray['Operations']; ?></th>
             </tr>
         </thead>
         <tbody>
@@ -63,7 +63,6 @@
                     <?php echo '<img src="'.SAVED_QRCODE_FOLDER.htmlspecialchars($row['qrcode']).'" width="100" height="100">'; ?>
                 </td>
                 <td>
-                    
                     <!-- EDIT -->
                     <a href="static_qrcode.php?edit=true&id=<?php echo $row['id']; ?>" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                     
@@ -100,16 +99,16 @@
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Confirm</h4>
+                    <h4 class="modal-title"><?php echo $langArray['Confirm']; ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="del_id" id="del_id" value="">
-                    <p>Are you sure you want to delete this row?</p>
+                    <p><?php echo $langArray['Are you sure you want to delete this row']; ?></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary"><?php echo $langArray['Save changes']; ?></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $langArray['Close']; ?></button>
                 </div>
             </div>
         </form>

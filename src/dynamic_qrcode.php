@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-    <title>Qrcode Generator</title>
+    <title><?php echo $langArray['Qr Code Generator']; ?></title>
     <head>
     <?php include './includes/head.php'; ?>
     </head>
@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
         <div class="row mb-2">
             
           <div class="col-sm-6">
-              <h1 class="m-0 text-dark"><?php echo ($edit) ? "Edit" : "Add"; ?> Qr code</h1>
+              <h1 class="m-0 text-dark"><?php echo ($edit) ? $langArray['Edit Qr code'] : $langArray['Add Qr code']; ?></h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
         <div class="container-fluid">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Enter the requested data</h3>
+                    <h3 class="card-title"><?php echo $langArray['Enter the requested data']; ?></h3>
                 </div>
                 <form class="form" action="" method="post" id="dynamic_form" enctype="multipart/form-data">
                     <div class="card-body">
@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST["edit"])) {
                         ?>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary"><?php echo $langArray['Submit']; ?></button>
                     </div>
                 </form>
             </div>

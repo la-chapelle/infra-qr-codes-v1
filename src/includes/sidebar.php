@@ -29,7 +29,7 @@
            <a href="./index.php" <?php echo ((substr(CURRENT_PAGE, 0, 9) == 'index.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
              <i class="nav-icon fas fa-tachometer-alt"></i>
              <p>
-               Dashboard
+               <?php echo $langArray['Dashboard']; ?>
              </p>
            </a>
          </li>
@@ -37,7 +37,7 @@
             <a href="#" <?php echo ((substr(CURRENT_PAGE, 0, 19) == 'dynamic_qrcodes.php') || (substr(CURRENT_PAGE, 0, 18) == 'dynamic_qrcode.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
               <i class="nav-icon fa fa-qrcode"></i>
               <p>
-                Dynamic Qr codes
+                <?php echo $langArray['Dynamic Qr codes']; ?>
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -45,13 +45,13 @@
               <li class="nav-item">
                 <a href="./dynamic_qrcodes.php" <?php echo ((substr(CURRENT_PAGE, 0, 19) == 'dynamic_qrcodes.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List all</p>
+                  <p><?php echo $langArray['List all']; ?></p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./dynamic_qrcode.php" <?php echo (CURRENT_PAGE == 'dynamic_qrcode.php') ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add new</p>
+                  <p><?php echo $langArray['Add new']; ?></p>
                 </a>
               </li>
             </ul>
@@ -60,7 +60,7 @@
                 <a href="#" <?php echo ((substr(CURRENT_PAGE, 0, 18) == 'static_qrcodes.php') || (substr(CURRENT_PAGE, 0, 17) == 'static_qrcode.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
                     <i class="nav-icon fa fa-qrcode"></i>
                     <p>
-                        Static Qr codes
+                        <?php echo $langArray['Static QR codes']; ?>
                         <i class="right fas fa-angle-left"></i>
                     </p>
                 </a>
@@ -68,13 +68,13 @@
                     <li class="nav-item">
                         <a href="./static_qrcodes.php" <?php echo ((substr(CURRENT_PAGE, 0, 18) == 'static_qrcodes.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
                             <i class="far fa-circle nav-icon"></i>
-                            <p>List all</p>
+                            <p><?php echo $langArray['List all']; ?></p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="./static_qrcode.php" <?php echo (CURRENT_PAGE == 'static_qrcode.php') ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Add new</p>
+                            <p><?php echo $langArray['Add new']; ?></p>
                         </a>
                     </li>
                 </ul>
@@ -82,7 +82,7 @@
           <li class="nav-item">
             <a href="./users.php" <?php echo ((substr(CURRENT_PAGE, 0, 15) == 'users.php') || (substr(CURRENT_PAGE, 0, 14) == 'user.php')) ? ' class="nav-link active"' : ' class="nav-link"'; ?>>
                 <i class="fas fa-users nav-icon"></i>
-              <p>Users</p>
+              <p><?php echo $langArray['Users']; ?></p>
             </a>
           </li>
         </ul>

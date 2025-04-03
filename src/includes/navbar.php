@@ -1,5 +1,4 @@
-
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -17,15 +16,15 @@
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <div class="dropdown-divider"></div>
           <!--<a href="#" class="dropdown-item">
-            <i class="fas fa-user"></i> Profile
+            <i class="fas fa-user"></i> <?php echo $langArray['Profile']; ?>
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fa fa-cog"></i> Settings
+            <i class="fa fa-cog"></i> <?php echo $langArray['Settings']; ?>
           </a>-->
           <div class="dropdown-divider"></div>
           <a href="./logout.php" class="dropdown-item">
-            <i class="fas fa-sign-out-alt"></i> Logout
+            <i class="fas fa-sign-out-alt"></i> <?php echo $langArray['Logout']; ?>
           </a>
         </div>
       </li>
