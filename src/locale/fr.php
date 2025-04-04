@@ -27,6 +27,7 @@ return [
     "Static" => "Statique",
     "Scan Graph" => "Graphique de scan",
     "Total qr code created" => "Total des qr codes créés",
+    "Qrcode Generator" => "Générateur de QR Code",
 
     # sidebar.php
     "List all" => "Lister tous",
