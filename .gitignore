@@ -7,3 +7,10 @@ docker-compose.yml
 secrets/
 
 backup_commands.sh
+restore_backup.sh
+
+letsencrypt/
+
+*.tgz
+*.tar.gz
+*.sql
