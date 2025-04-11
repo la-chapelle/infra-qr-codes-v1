@@ -5,3 +5,5 @@
 docker-compose.yml
 
 secrets/
+
+backup_commands.sh
