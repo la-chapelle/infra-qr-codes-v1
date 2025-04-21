@@ -21,8 +21,8 @@ services:
       - "traefik.http.routers.infra-qr.entrypoints=websecure"
       - "traefik.http.routers.infra-qr.tls.certresolver=myresolver"
       - "traefik.http.routers.infra-qr.tls=true"
-    depends_on:
-      - php-dynamic-qrcode-db
+    # depends_on: # Depends_on seems unreliable with traefik. I will remove it and check if I still see incidents.
+      # - php-dynamic-qrcode-db
     volumes:
       - php_dynamic_qrcode_saved_qrcode_data:/var/www/html/saved_qrcode
     networks:
