@@ -1,4 +1,4 @@
-FROM php:8.3-apache
+FROM php:8.3
 
 RUN if [ "$(grep '^VERSION_ID=' /etc/os-release | cut -d '=' -f 2 | tr -d '"')" -eq "9" ]; then \
         sed -i -e 's/deb.debian.org/archive.debian.org/g' \
@@ -96,11 +96,6 @@ RUN cp -R ./php-qrcode/src /var/www/html/
 WORKDIR /var/www/html
 RUN composer update
 COPY ./src ./
-RUN chown -R www-data:www-data /var/www/html
 RUN chmod 755 *;
-
-RUN mkdir -p /var/www/html/saved_qrcode && chown -R www-data:www-data /var/www/html/saved_qrcode
-
-RUN a2enmod rewrite
-
 EXPOSE 80
+CMD ["php", "-S", "0.0.0.0:80"]
